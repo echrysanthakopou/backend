@@ -8,8 +8,8 @@ import java.util.Objects;
 @Table(name = "historyworking", schema = "mydb", catalog = "")
 public class HistoryworkingEntity {
     private Integer id;
-    private Date startDate;
-    private Date toDate;
+    private Date startdate;
+    private Date todate;
     private Double salary;
     private CompanyEntity companyByCompanyId;
 
@@ -26,21 +26,21 @@ public class HistoryworkingEntity {
     @Basic
     @Column(name = "startdate", nullable = true)
     public Date getStartDate() {
-        return startDate;
+        return startdate;
     }
 
     public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+        this.startdate = startDate;
     }
 
     @Basic
     @Column(name = "toDate", nullable = true)
     public Date getToDate() {
-        return toDate;
+        return todate;
     }
 
     public void setToDate(Date toDate) {
-        this.toDate = toDate;
+        this.todate = toDate;
     }
 
     @Basic
