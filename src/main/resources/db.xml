@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3308/mydb</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <mapping class="gr.pension.app.model.entitiesNew.BankaccountEntity"/>
+        <mapping class="gr.pension.app.model.entitiesNew.CompanyEntity"/>
+        <mapping class="gr.pension.app.model.entitiesNew.ContributionsEntity"/>
+        <mapping class="gr.pension.app.model.entitiesNew.HistoryworkingEntity"/>
+        <mapping class="gr.pension.app.model.entitiesNew.UserEntity"/>
+    </session-factory>
+</hibernate-configuration>
