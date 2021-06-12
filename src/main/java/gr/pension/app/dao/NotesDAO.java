@@ -17,7 +17,6 @@ public interface NotesDAO extends CrudRepository<HistoryworkingEntity, Integer> 
         List<HistoryworkingEntity> findAllById(Integer user);
 
 
-
     @Override
     <S extends HistoryworkingEntity> S save(S s);
 
