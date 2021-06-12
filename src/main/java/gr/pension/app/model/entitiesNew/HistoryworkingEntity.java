@@ -59,14 +59,14 @@ public class HistoryworkingEntity {
         if (o == null || getClass() != o.getClass()) return false;
         HistoryworkingEntity that = (HistoryworkingEntity) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(startDate, that.startDate) &&
-                Objects.equals(toDate, that.toDate) &&
+                Objects.equals(startdate, that.startdate) &&
+                Objects.equals(todate, that.todate) &&
                 Objects.equals(salary, that.salary);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, startDate, toDate, salary);
+        return Objects.hash(id, startdate, todate, salary);
     }
 
     @ManyToOne
