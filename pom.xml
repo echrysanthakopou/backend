@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.bee</groupId>
-	<artifactId>BeekeepingApp</artifactId>
+	<artifactId>pensionApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>pensionApp</name>
 	<description>wow</description>
