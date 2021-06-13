@@ -1,15 +1,14 @@
-package gr.pension.app.model.entitiesNew;
+package gr.pension.app.model.entities;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "contributions", schema = "mydb", catalog = "")
-@IdClass(ContributionsEntityPK.class)
 public class ContributionsEntity {
     private Integer id;
     private String amount;
-    private Integer historyWorkingId;
+    private HistoryworkingEntity historyworkingByHistoryworkingid;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -31,28 +30,27 @@ public class ContributionsEntity {
         this.amount = amount;
     }
 
-    @Id
-    @Column(name = "historyWorking_id", nullable = false)
-    public Integer getHistoryWorkingId() {
-        return historyWorkingId;
-    }
-
-    public void setHistoryWorkingId(Integer historyWorkingId) {
-        this.historyWorkingId = historyWorkingId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContributionsEntity that = (ContributionsEntity) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(amount, that.amount) &&
-                Objects.equals(historyWorkingId, that.historyWorkingId);
+                Objects.equals(amount, that.amount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, amount, historyWorkingId);
+        return Objects.hash(id, amount);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "historyworkingid", referencedColumnName = "id", nullable = false)
+    public HistoryworkingEntity getHistoryworkingByHistoryworkingid() {
+        return historyworkingByHistoryworkingid;
+    }
+
+    public void setHistoryworkingByHistoryworkingid(HistoryworkingEntity historyworkingByHistoryworkingid) {
+        this.historyworkingByHistoryworkingid = historyworkingByHistoryworkingid;
     }
 }

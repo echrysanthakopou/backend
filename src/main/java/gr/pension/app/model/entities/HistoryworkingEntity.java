@@ -1,7 +1,8 @@
-package gr.pension.app.model.entitiesNew;
+package gr.pension.app.model.entities;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -11,7 +12,9 @@ public class HistoryworkingEntity {
     private Date startdate;
     private Date todate;
     private Double salary;
-    private CompanyEntity companyByCompanyId;
+    private Collection<ContributionsEntity> contributionsById;
+    private UserEntity userByUserid;
+    private CompanyEntity companyByCompanyid;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -25,22 +28,22 @@ public class HistoryworkingEntity {
 
     @Basic
     @Column(name = "startdate", nullable = true)
-    public Date getStartDate() {
+    public Date getStartdate() {
         return startdate;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startdate = startDate;
+    public void setStartdate(Date startdate) {
+        this.startdate = startdate;
     }
 
     @Basic
-    @Column(name = "toDate", nullable = true)
-    public Date getToDate() {
+    @Column(name = "todate", nullable = true)
+    public Date getTodate() {
         return todate;
     }
 
-    public void setToDate(Date toDate) {
-        this.todate = toDate;
+    public void setTodate(Date todate) {
+        this.todate = todate;
     }
 
     @Basic
@@ -69,13 +72,32 @@ public class HistoryworkingEntity {
         return Objects.hash(id, startdate, todate, salary);
     }
 
-    @ManyToOne
-    @JoinColumn(name = "company_id", referencedColumnName = "id")
-    public CompanyEntity getCompanyByCompanyId() {
-        return companyByCompanyId;
+    @OneToMany(mappedBy = "historyworkingByHistoryworkingid")
+    public Collection<ContributionsEntity> getContributionsById() {
+        return contributionsById;
     }
 
-    public void setCompanyByCompanyId(CompanyEntity companyByCompanyId) {
-        this.companyByCompanyId = companyByCompanyId;
+    public void setContributionsById(Collection<ContributionsEntity> contributionsById) {
+        this.contributionsById = contributionsById;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "userid", referencedColumnName = "id")
+    public UserEntity getUserByUserid() {
+        return userByUserid;
+    }
+
+    public void setUserByUserid(UserEntity userByUserid) {
+        this.userByUserid = userByUserid;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "companyid", referencedColumnName = "id")
+    public CompanyEntity getCompanyByCompanyid() {
+        return companyByCompanyid;
+    }
+
+    public void setCompanyByCompanyid(CompanyEntity companyByCompanyid) {
+        this.companyByCompanyid = companyByCompanyid;
     }
 }
