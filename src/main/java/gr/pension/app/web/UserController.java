@@ -1,8 +1,8 @@
 package gr.pension.app.web;
 
-import gr.pension.app.dao.NotesDAO;
+import gr.pension.app.dao.HistoryworkingEntityDAO;
 import gr.pension.app.model.data;
-import gr.pension.app.model.entitiesNew.HistoryworkingEntity;
+import gr.pension.app.model.entities.HistoryworkingEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +14,7 @@ public class UserController {
 
 
     @Autowired
-    private NotesDAO notesDAO;
+    private HistoryworkingEntityDAO historyworkingEntityDAO;
 
 
     @ResponseBody
@@ -23,7 +23,7 @@ public class UserController {
 
         System.out.println("test " +name+ "}\n");
 
-        return notesDAO.findById(Integer.parseInt(name.getName())).orElse(null);
+        return historyworkingEntityDAO.findById(Integer.parseInt(name.getName())).orElse(null);
     }
 
 
