@@ -1,11 +1,14 @@
 package gr.pension.app.model.entities;
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Collection;
 import java.util.Objects;
 
 @Entity
+@EnableAutoConfiguration
 @Table(name = "historyworking", schema = "mydb", catalog = "")
 public class HistoryworkingEntity {
     private Integer id;

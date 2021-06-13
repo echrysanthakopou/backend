@@ -1,9 +1,12 @@
 package gr.pension.app.model.entities;
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@EnableAutoConfiguration
 @Table(name = "contributions", schema = "mydb", catalog = "")
 public class ContributionsEntity {
     private Integer id;
