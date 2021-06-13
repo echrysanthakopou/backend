@@ -1,10 +1,13 @@
 package gr.pension.app.model.entities;
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
 
 @Entity
+@EnableAutoConfiguration
 @Table(name = "bankaccount", schema = "mydb", catalog = "")
 public class BankaccountEntity {
     private Integer id;
