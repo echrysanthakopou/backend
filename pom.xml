@@ -11,7 +11,7 @@
 	<groupId>com.bee</groupId>
 	<artifactId>BeekeepingApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>BeekeepingApp</name>
+	<name>pensionApp</name>
 	<description>wow</description>
 
 	<properties>
