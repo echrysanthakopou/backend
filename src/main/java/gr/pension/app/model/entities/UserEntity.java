@@ -1,6 +1,7 @@
-package gr.pension.app.model.entitiesNew;
+package gr.pension.app.model.entities;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -15,7 +16,8 @@ public class UserEntity {
     private String death;
     private String password;
     private Integer id;
-    private BankaccountEntity bankaccountByBankAccountId;
+    private Collection<HistoryworkingEntity> historyworkingsById;
+    private BankaccountEntity bankaccountByBankaccount;
 
     @Basic
     @Column(name = "age", nullable = true, length = 45)
@@ -128,13 +130,22 @@ public class UserEntity {
         return Objects.hash(age, name, surname, gender, address, state, death, password, id);
     }
 
-    @ManyToOne
-    @JoinColumn(name = "bankAccount_id", referencedColumnName = "id", nullable = false)
-    public BankaccountEntity getBankaccountByBankAccountId() {
-        return bankaccountByBankAccountId;
+    @OneToMany(mappedBy = "userByUserid")
+    public Collection<HistoryworkingEntity> getHistoryworkingsById() {
+        return historyworkingsById;
     }
 
-    public void setBankaccountByBankAccountId(BankaccountEntity bankaccountByBankAccountId) {
-        this.bankaccountByBankAccountId = bankaccountByBankAccountId;
+    public void setHistoryworkingsById(Collection<HistoryworkingEntity> historyworkingsById) {
+        this.historyworkingsById = historyworkingsById;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "bankaccount", referencedColumnName = "id")
+    public BankaccountEntity getBankaccountByBankaccount() {
+        return bankaccountByBankaccount;
+    }
+
+    public void setBankaccountByBankaccount(BankaccountEntity bankaccountByBankaccount) {
+        this.bankaccountByBankaccount = bankaccountByBankaccount;
     }
 }
