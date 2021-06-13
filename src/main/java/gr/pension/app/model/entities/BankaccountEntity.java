@@ -1,6 +1,7 @@
-package gr.pension.app.model.entitiesNew;
+package gr.pension.app.model.entities;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -9,6 +10,7 @@ public class BankaccountEntity {
     private Integer id;
     private String description;
     private String iban;
+    private Collection<UserEntity> usersById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -53,5 +55,14 @@ public class BankaccountEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id, description, iban);
+    }
+
+    @OneToMany(mappedBy = "bankaccountByBankaccount")
+    public Collection<UserEntity> getUsersById() {
+        return usersById;
+    }
+
+    public void setUsersById(Collection<UserEntity> usersById) {
+        this.usersById = usersById;
     }
 }

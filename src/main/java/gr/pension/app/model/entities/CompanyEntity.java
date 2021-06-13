@@ -1,6 +1,7 @@
-package gr.pension.app.model.entitiesNew;
+package gr.pension.app.model.entities;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -9,6 +10,7 @@ public class CompanyEntity {
     private Integer id;
     private String name;
     private String description;
+    private Collection<HistoryworkingEntity> historyworkingsById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -53,5 +55,14 @@ public class CompanyEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, description);
+    }
+
+    @OneToMany(mappedBy = "companyByCompanyid")
+    public Collection<HistoryworkingEntity> getHistoryworkingsById() {
+        return historyworkingsById;
+    }
+
+    public void setHistoryworkingsById(Collection<HistoryworkingEntity> historyworkingsById) {
+        this.historyworkingsById = historyworkingsById;
     }
 }
