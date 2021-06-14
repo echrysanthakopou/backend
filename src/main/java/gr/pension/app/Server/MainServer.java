@@ -18,15 +18,14 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories("gr.pension.app")
 
 public class MainServer {
-    public static final Logger logger = Logger.getLogger("logger");
+    private static final Logger logger = Logger.getLogger("logger");
 
     public static void main(String[] args) {
-        logger.info("BeeHives server started");
+        logger.info("Pension server started");
         logger.setLevel(Level.ALL);
         SpringApplication.run(MainServer.class, args);
 
-         //FinancialCategories cat=new FinancialCategories();
-       // cat.createObject();
+
     }
 
 }
