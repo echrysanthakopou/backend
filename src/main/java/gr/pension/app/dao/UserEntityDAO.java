@@ -11,7 +11,7 @@ import java.util.List;
 public interface UserEntityDAO extends CrudRepository<UserEntity, Integer> {
     @Override
     List<UserEntity> findAll();
-    
+
         List<UserEntity> findAllById(Integer id);
 
     @Override
