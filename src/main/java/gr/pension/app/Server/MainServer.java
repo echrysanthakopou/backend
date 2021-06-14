@@ -1,7 +1,5 @@
 package gr.pension.app.Server;
 
-
-
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
@@ -12,7 +10,6 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication ( exclude = {SecurityAutoConfiguration.class} )
-//@Import(MySecurityConfiguration.class)
 @ComponentScan("gr.pension.app")
 @EntityScan("gr.pension.app")
 @EnableJpaRepositories("gr.pension.app")
