@@ -29,7 +29,7 @@ With docker
 
 ```bash
 
-docker run --name=sql -d mysql/mysql-server:latest
+rwdocker run --name=sql -d mysql/mysql-server:latest
 
 docker run server   JAR_FILE=target/*.jar
 ```
