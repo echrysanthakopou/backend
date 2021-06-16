@@ -19,6 +19,8 @@
 mvn clean
 mvn clean install
 docker build -t server .
+docker pull mysql/mysql-server:latest
+
 ```
 
 ## Usage
@@ -26,7 +28,9 @@ docker build -t server .
 With docker 
 
 ```bash
-docker build -t server .
+
+docker run --name=sql -d mysql/mysql-server:latest
+
 docker run server   JAR_FILE=target/*.jar
 ```
 
