@@ -1,5 +1,5 @@
 package gr.pension.app.Constants;
 public class Genearal {
 
-    static final String appName="beekeeping App";
+    static final String appName="pension App";
 }
