@@ -6,11 +6,11 @@ import java.util.List;
 
 @Repository
 public interface BankAccountDAO extends CrudRepository<BankaccountEntity, Integer> {
+
     @Override
     List<BankaccountEntity> findAll();
 
-
-        List<BankaccountEntity> findAllById(Integer id);
+    List<BankaccountEntity> findAllById(Integer id);
 
 
     @Override
