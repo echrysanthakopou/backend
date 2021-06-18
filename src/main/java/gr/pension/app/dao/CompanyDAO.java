@@ -9,11 +9,12 @@ import java.util.List;
 
 @Repository
 public interface CompanyDAO extends CrudRepository<CompanyEntity, Integer> {
+
     @Override
     List<CompanyEntity> findAll();
 
 
-        List<CompanyEntity> findAllById(Integer id);
+    List<CompanyEntity> findAllById(Integer id);
 
 
     @Override
