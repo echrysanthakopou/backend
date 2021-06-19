@@ -47,5 +47,16 @@ public class applicationData {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    @Override
+    public String toString() {
+        return "applicationData{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", type='" + type + '\'' +
+                ", date=" + date +
+                '}';
+    }
+    
 }
 
