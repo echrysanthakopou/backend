@@ -49,17 +49,6 @@ public class UserController {
 
 
     @ResponseBody
-    @PostMapping(value = "/createUSer")
-    public Boolean userExist(@RequestBody String  userName) {
-
-
-        System.out.println("Create User with data" +userName+ "}\n");
-
-        //User exist
-        return true;
-    }
-
-    @ResponseBody
     @PostMapping(value = "/login")
     public String testingApi(@RequestBody  String name, @RequestBody  String password) {
 
