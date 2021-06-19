@@ -57,6 +57,6 @@ public class applicationData {
                 ", date=" + date +
                 '}';
     }
-    
+
 }
 
