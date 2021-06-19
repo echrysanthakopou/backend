@@ -17,4 +17,5 @@ public interface UserEntityDAO extends CrudRepository<UserEntity, Integer> {
     @Override
     <S extends UserEntity> S save(S s);
 
+
 }
