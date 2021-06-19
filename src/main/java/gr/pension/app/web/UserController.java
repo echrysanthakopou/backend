@@ -35,7 +35,7 @@ public class UserController {
 
     @ResponseBody
     @PostMapping(value = "/createUSer")
-    public Boolean createUser(@RequestBody UserEntity user) {
+    public Boolean createUser1(@RequestBody UserEntity user) {
 
 
         System.out.println("Create User with data" +user.toString()+ "}\n");
