@@ -17,22 +17,11 @@ public class Application {
     private UserEntityDAO   userEntityDAO;
 
 
-//    @ResponseBody
-//    @PostMapping("/getNotes")
-//    public HistoryworkingEntity getNotes(@RequestBody data name)  {
-//
-//        System.out.println("test " +name+ "}\n");
-//
-//        return historyworkingEntityDAO.findById(Integer.parseInt(name.getName())).orElse(null);
-//    }
-
-
-
 
 
     @ResponseBody
     @PostMapping(value = "/applicationCreate")
-    public Boolean createUser(@RequestBody Application app) {
+    public Boolean createApp(@RequestBody Application app) {
 
 
         System.out.println("Create User with data" +app.toString()+ "}\n");
@@ -46,8 +35,8 @@ public class Application {
 
 
     @ResponseBody
-    @PostMapping(value = "/createUSer")
-    public Boolean userExist(@RequestBody Application search) {
+    @PostMapping(value = "/searchApplication")
+    public Boolean searchApplication(@RequestBody Application search) {
 
 
         System.out.println("Create User with data" +search+ "}\n");
