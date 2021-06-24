@@ -19,6 +19,8 @@ public class UserEntity {
     private String death;
     private String password;
     private Integer id;
+    private String email;
+
     private Collection<HistoryworkingEntity> historyworkingsById;
     private BankaccountEntity bankaccountByBankaccount;
 
@@ -30,6 +32,16 @@ public class UserEntity {
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    @Basic
+    @Column(name = "mail", nullable = true, length = 45)
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Basic
@@ -102,7 +114,7 @@ public class UserEntity {
         this.password = password;
     }
 
-    @Id
+    @Id @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     public Integer getId() {
         return id;

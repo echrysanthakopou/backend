@@ -1,9 +1,11 @@
 package gr.pension.app.web;
 
-import gr.pension.app.dao.UserEntityDAO;
-import gr.pension.app.model.entities.UserEntity;
+import gr.pension.app.dao.ApplicationDAO;
+import gr.pension.app.model.entities.ApplicationEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -14,20 +16,36 @@ public class Application {
 
 
     @Autowired
-    private UserEntityDAO   userEntityDAO;
+    private ApplicationDAO applicationDAO;
 
 
 
 
     @ResponseBody
     @PostMapping(value = "/applicationCreate")
-    public Boolean createApp(@RequestBody Application app) {
+    public Boolean createApp(@RequestBody ApplicationEntity app) {
 
 
-        System.out.println("Create User with data" +app.toString()+ "}\n");
-//        userEntityDAO.save(user);
+        System.out.println("Received" +app.toString()+ "}\n");
 
+
+        applicationDAO.save(app);
         return true;
+        //return null;
+
+
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/getApplication")
+    public List<ApplicationEntity> createApp(@RequestBody String name) {
+
+
+
+
+
+        return
+                applicationDAO.findAll();
         //return null;
 
 

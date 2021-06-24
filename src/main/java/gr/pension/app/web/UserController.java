@@ -63,8 +63,8 @@ public class UserController {
 
         for (UserEntity user:users
              ) {
-            System.out.println("looping, cur User" + user.getName()+" pass " +user.getPassword() );
-            if (user.getName().equals(loginData.getName())&& user.getPassword().equals(loginData.getPassword())){
+            System.out.println("looping, cur User" + user.getEmail()+" pass " +user.getPassword() );
+            if (user.getEmail().equals(loginData.getName())&& user.getPassword().equals(loginData.getPassword())){
                 System.out.println("Found");
                 return "Login Successful!";
             }
