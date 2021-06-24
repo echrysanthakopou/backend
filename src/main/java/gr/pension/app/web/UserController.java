@@ -2,11 +2,14 @@ package gr.pension.app.web;
 
 import gr.pension.app.dao.HistoryworkingEntityDAO;
 import gr.pension.app.dao.UserEntityDAO;
+import gr.pension.app.datatypes.LoginDetails;
 import gr.pension.app.model.data;
 import gr.pension.app.model.entities.HistoryworkingEntity;
 import gr.pension.app.model.entities.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -49,15 +52,25 @@ public class UserController {
 
 
     @ResponseBody
-    @PostMapping(value = "/login")
-    public String testingApi(@RequestBody  String name, @RequestBody  String password) {
+    @PostMapping(value = "/login", headers = "Accept=application/x-www-form-urlencoded;harset=UTF-8")
+    public String login(@RequestBody LoginDetails loginData)  {
 
 
-        System.out.println("test " +name+ "}\n");
+        System.out.println("Received " +loginData.toString()+ "\n");
+        //List<userE
+        List<UserEntity> users = userEntityDAO.findAll();
 
-        return "logged User";
-        //return null;
 
+        for (UserEntity user:users
+             ) {
+            System.out.println("looping, cur User" + user.getName()+" pass " +user.getPassword() );
+            if (user.getName().equals(loginData.getName())&& user.getPassword().equals(loginData.getPassword())){
+                System.out.println("Found");
+                return "Login Successful!";
+            }
+        }
+
+        return "logged User Error";
 
     }
 }
