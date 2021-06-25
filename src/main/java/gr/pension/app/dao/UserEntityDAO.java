@@ -14,6 +14,8 @@ public interface UserEntityDAO extends CrudRepository<UserEntity, Integer> {
 
         List<UserEntity> findAllById(Integer id);
 
+        UserEntity findUserEntityByEmail(String mail);
+
     @Override
     <S extends UserEntity> S save(S s);
 

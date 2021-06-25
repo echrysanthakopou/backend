@@ -50,6 +50,22 @@ public class UserController {
 
     }
 
+    @ResponseBody
+    @PostMapping(value = "/findUser")
+    public UserEntity findUser(@RequestBody LoginDetails loginData) {
+
+
+        System.out.println("Create User with data" +user.toString()+ "}\n");
+        return userEntityDAO.findUserEntityByEmail(loginData.getName());
+
+
+        //return null;
+
+
+    }
+
+
+
 
     @ResponseBody
     @PostMapping(value = "/login", headers = "Accept=application/x-www-form-urlencoded;harset=UTF-8")
