@@ -37,7 +37,7 @@ public class UserController {
 
 
     @ResponseBody
-    @PostMapping(value = "/createUSer")
+    @PostMapping(value = "/createuser")
     public Boolean createUser1(@RequestBody UserEntity user) {
 
 
