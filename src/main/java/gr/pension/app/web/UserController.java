@@ -55,7 +55,7 @@ public class UserController {
     public UserEntity findUser(@RequestBody LoginDetails loginData) {
 
 
-        System.out.println("Create User with data" +user.toString()+ "}\n");
+        System.out.println("find user with mail" +loginData.getName()+ "}\n");
         return userEntityDAO.findUserEntityByEmail(loginData.getName());
 
 
