@@ -65,8 +65,6 @@ public class UserController {
     }
 
 
-
-
     @ResponseBody
     @PostMapping(value = "/login", headers = "Accept=application/x-www-form-urlencoded;harset=UTF-8")
     public String login(@RequestBody LoginDetails loginData)  {
