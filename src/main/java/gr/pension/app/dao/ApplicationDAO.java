@@ -14,6 +14,7 @@ public interface ApplicationDAO extends CrudRepository<ApplicationEntity, Intege
 
     List<ApplicationEntity> findAllById(Integer id);
 
+    List<ApplicationEntity> findAllByEmail(String mail);
 
     @Override
     <S extends ApplicationEntity> S save(S s);

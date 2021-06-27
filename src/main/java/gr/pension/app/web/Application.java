@@ -38,14 +38,14 @@ public class Application {
 
     @ResponseBody
     @PostMapping(value = "/getApplication")
-    public List<ApplicationEntity> createApp(@RequestBody String name) {
+    public List<ApplicationEntity> createApp(@RequestBody String mail) {
 
 
 
 
 
         return
-                applicationDAO.findAll();
+                applicationDAO.findAllByEmail(mail);
         //return null;
 
 
