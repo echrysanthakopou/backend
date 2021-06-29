@@ -5,7 +5,7 @@
     tasks:
 
   - name: "installing python "
-	yum:
+	apt:
 		  name: python-pip
 		  state: present
 	- name: "installing python pip"
