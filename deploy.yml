@@ -8,7 +8,7 @@
 	apt:
 		  name: python-pip
 		  state: present
-	- name: "installing python pip"
+  - name: "installing python pip"
 	pip:
 		  name: docker-py
 		  state: present
