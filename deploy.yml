@@ -3,7 +3,16 @@
     hosts: localhost
     connection: local 
     tasks:
-
+    
+  - name: "installing python "
+	apt:
+		  name: python-pip
+		  state: present
+  - name: "installing python pip"
+	pip:
+		  name: docker-py
+		  state: present
+	
 
   - name: "start docker"
 	docker_container:
