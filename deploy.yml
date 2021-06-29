@@ -1,23 +1,29 @@
 ---
-  - name: "Playing with Ansible and Git"
-    hosts: localhost
-    connection: local 
-    tasks:
-    
-  - name: "installing python "
-	apt:
-		  name: python-pip
-		  state: present
-  - name: "installing python pip"
-	pip:
-		  name: docker-py
-		  state: present
-	
+- hosts: localhost
+  gather_facts: no
+  remote_user: ubuntu
+  become: yes
+  connection: local 
+  tasks:
+    - name: Install docker and some dependencies
+      apt:
+        name: python3-pip, docker.io
+        state: present
 
-  - name: "start docker"
-	docker_container:
-		  name:	back
-		  image: "echrysanthakopou/back:1_0_0"
-		  state: started
-		  published_ports:
-		  - 0.0.0.0:8082:8082
+    - name: Start docker service
+      service:
+        name: docker
+        state: started
+
+    - name: Install docker python module
+      pip:
+        name: docker
+
+    - name: Create nginx container
+      docker_container:
+        name:	back
+		image: "echrysanthakopou/back:1_0_0"
+        state: started
+        recreate: yes
+        published_ports:
+          - 8082:8082
