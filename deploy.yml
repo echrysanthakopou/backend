@@ -1,8 +1,7 @@
 ---
-  - name: "Playing with Ansible and Git"
-	hosts: localhost
-	connection: local 
-	tasks:
+-hosts: localhost
+connection: local 
+tasks:
 
   - name: "installing python pip"
 	pip:
