@@ -1,7 +1,5 @@
 ---
 - hosts: localhost
-  gather_facts: no
-  remote_user: user
   sudo: yes
   connection: local 
   tasks:
