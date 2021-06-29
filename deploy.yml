@@ -25,11 +25,11 @@
       register: "output"
       
     - name: "just execute a ls -lrt command4_5"
-      shell: "sleep 300; "
+      shell: "sleep 240; "
       register: "output"    
       
     - name: "just execute a ls -lrt command5"
-      shell: "sleep 60; docker run --name=back --net=host  -p 8082:8082  echrysanthakopou/back:1_0_0 &"
+      shell: " docker run --name=back --net=host  -p 8082:8082  echrysanthakopou/back:1_0_0 &"
       register: "output"      
       
     - debug: var=output.stdout_lines
