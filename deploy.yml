@@ -5,7 +5,19 @@
     tasks:
 
     - name: "just execute a ls -lrt command"
-      shell: "docker rm -f CONTAINER_ID"
+      shell: "docker pull mysql/mysql-server:8.0docker pull mysql/mysql-server:8.0"
       register: "output"
 
+    - name: "just execute a ls -lrt command1"
+      shell: "docker rm -f mysql-docker"
+      register: "output"
+      
+    - name: "just execute a ls -lrt command2"
+      shell: "docker run --name=mysql-docker -p 3306:3306 -e MYSQL_ROOT_HOST='%' -e MYSQL_ROOT_PASSWORD=HarrisHarris1 -e MYSQL_DATABASE=mydb1 -d mysql/mysql-server:8.0"
+      register: "output"
+
+    - name: "just execute a ls -lrt command2"
+      shell: "docker run --name=mysql-docker -p 3306:3306 -e MYSQL_ROOT_HOST='%' -e MYSQL_ROOT_PASSWORD=HarrisHarris1 -e MYSQL_DATABASE=mydb1 -d mysql/mysql-server:8.0"
+      register: "output"
+      
     - debug: var=output.stdout_lines
