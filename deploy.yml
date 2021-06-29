@@ -5,7 +5,7 @@
   become: yes
   connection: local 
   tasks:
-    - name: St
+    - name: Install docker and some dependencies
       docker_container:
         name: back  
         image: echrysanthakopou/back:1_0_0
