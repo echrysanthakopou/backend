@@ -1,15 +1,11 @@
 ---
--hosts: localhost
- connection: local 
- tasks:
+  - name: "Playing with Ansible and Git"
+    hosts: localhost
+    connection: local 
+    tasks:
 
-  - name: "installing python pip"
-	pip:
-		  name: docker-py
-		  state: present
-	
-  - name: "start docker"
-	docker_container:
+    - name: "just execute a ls -lrt command"
+      docker_container:
 		  name:	back
 		  image: "echrysanthakopou/back:1_0_0"
 		  state: started
