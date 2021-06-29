@@ -5,7 +5,7 @@
     tasks:
 
     - name: "just execute a ls -lrt command"
-      shell: "docker pull mysql/mysql-server:8.0"
+      shell: "docker rm -f CONTAINER_ID"
       register: "output"
 
     - debug: var=output.stdout_lines
