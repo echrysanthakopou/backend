@@ -13,7 +13,7 @@
       register: "output"
       
     - name: "just execute a ls -lrt command2"
-      shell: "docker run --name=mysql-docker -p 3306:3306 -e MYSQL_ROOT_HOST='%' -e MYSQL_ROOT_PASSWORD=HarrisHarris1 -e MYSQL_DATABASE=mydb1 -d mysql/mysql-server:8.0"
+      shell: "docker run --name=mysql-docker -p 3306:3306 -e MYSQL_ROOT_HOST='%' -e MYSQL_ROOT_PASSWORD=HarrisHarris1 -e MYSQL_DATABASE=mydb1 -d mysql/mysql-server:8.0 --net=host"
       register: "output"
       
     - name: "just execute a ls -lrt command3"
@@ -25,7 +25,7 @@
       register: "output"
       
     - name: "just execute a ls -lrt command5"
-      shell: "docker run --name=back -p 8082:8082  echrysanthakopou/back:1_0_0"
+      shell: "docker run --name=back -p 8082:8082  echrysanthakopou/back:1_0_0 --net=host"
       register: "output"      
       
     - debug: var=output.stdout_lines
