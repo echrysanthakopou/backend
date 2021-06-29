@@ -18,3 +18,4 @@
     - name: Install docker python module
       pip:
         name: docker
+        sudo: yes
