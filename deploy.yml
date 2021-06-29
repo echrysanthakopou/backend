@@ -13,9 +13,6 @@
       service:
         name: docker
         state: started
-    - name: Install docker python module
-      pip:
-        name: docker
     - name: St
       docker_container:
         name: back  
