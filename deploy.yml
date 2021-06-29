@@ -6,10 +6,13 @@
   connection: local 
   tasks:
     - name: Install docker and some dependencies
-      docker_container:
-        name: back  
-        image: echrysanthakopou/back:1_0_0
+      apt:
+        name: python3-pip, docker.io
+        state: present
+    - name: Start docker service
+      service:
+        name: docker
         state: started
-        recreate: yes
-        published_ports:
-          - 8082:8082
+    - name: Install docker python module
+      pip:
+        name: docker
