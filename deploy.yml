@@ -25,7 +25,7 @@
       register: "output"
       
     - name: "just execute a ls -lrt command5"
-      shell: "docker run --name=back -p 8082:8082  echrysanthakopou/back:1_0_0 --net=host"
+      shell: "docker run --name=back -p 8082:8082  echrysanthakopou/back:1_0_0 "
       register: "output"      
       
     - debug: var=output.stdout_lines
