@@ -1,19 +1,11 @@
 ---
-- hosts: localhost
-  sudo: yes
-  connection: local 
-  tasks:
-    - name: Install docker and some dependencies
-      apt:
-        name: python3-pip, docker.io
-        state: present
-        sudo: yes
-    - name: Start docker service
-      service:
-        name: docker
-        state: started
-        sudo: yes
-    - name: Install docker python module
-      pip:
-        name: docker
-        sudo: yes
+  - name: "Playing with Ansible and Git"
+    hosts: localhost
+    connection: local 
+    tasks:
+
+    - name: "just execute a ls -lrt command"
+      shell: "docker pull mysql/mysql-server:8.0"
+      register: "output"
+
+    - debug: var=output.stdout_lines
