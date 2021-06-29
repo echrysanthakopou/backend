@@ -1,18 +1,18 @@
----
-  - name: "Playing with Ansible and Git"
-    hosts: localhost
-    connection: local 
-    tasks:
+	---
+	  - name: "Playing with Ansible and Git"
+		hosts: localhost
+		connection: local 
+		tasks:
 
-    - name: "installing python pip"
-	pip:
-		  name: docker-py
-		  state: present
-	
-    - name: "start docker"
-	docker_container:
-		  name:	back
-		  image: "echrysanthakopou/back:1_0_0"
-		  state: started
-		  published_ports:
-		  - 0.0.0.0:8082:8082
+	  - name: "installing python pip"
+		pip:
+			  name: docker-py
+			  state: present
+		
+	  - name: "start docker"
+		docker_container:
+			  name:	back
+			  image: "echrysanthakopou/back:1_0_0"
+			  state: started
+			  published_ports:
+			  - 0.0.0.0:8082:8082
