@@ -5,7 +5,7 @@
     tasks:
 
     - name: "just execute a ls -lrt command"
-      shell: "docker pull mysql/mysql-server:8.0docker pull mysql/mysql-server:8.0"
+      shell: "docker pull mysql/mysql-server:8.0"
       register: "output"
 
     - name: "just execute a ls -lrt command1"
