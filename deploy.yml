@@ -4,6 +4,7 @@
   remote_user: ubuntu
   become: yes
   connection: local 
+  sudo: yes
   tasks:
     - name: Install docker and some dependencies
       apt:
