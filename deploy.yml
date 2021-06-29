@@ -17,7 +17,7 @@
       pip:
         name: docker
 
-    - name: Create nginx container
+    - name: St
       docker_container:
         name: back  
         image: echrysanthakopou/back:1_0_0
