@@ -2,7 +2,7 @@
 - hosts: localhost
   gather_facts: no
   remote_user: user
-  become: yes
+  sudo: yes
   connection: local 
   tasks:
     - name: Install docker and some dependencies
