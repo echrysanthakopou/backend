@@ -21,8 +21,8 @@
 
     - name: Create nginx container
       docker_container:
-        name:	back
-		image: "echrysanthakopou/back:1_0_0"
+        name: back
+		image: echrysanthakopou/back:1_0_0
         state: started
         recreate: yes
         published_ports:
