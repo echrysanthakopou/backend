@@ -16,4 +16,16 @@
       shell: "docker run --name=mysql-docker -p 3306:3306 -e MYSQL_ROOT_HOST='%' -e MYSQL_ROOT_PASSWORD=HarrisHarris1 -e MYSQL_DATABASE=mydb1 -d mysql/mysql-server:8.0"
       register: "output"
       
+    - name: "just execute a ls -lrt command3"
+      shell: "docker pull echrysanthakopou/back:1_0_0"
+      register: "output"
+
+    - name: "just execute a ls -lrt command4"
+      shell: "docker rm -f back"
+      register: "output"
+      
+    - name: "just execute a ls -lrt command5"
+      shell: "docker run --name=back -p 8082:8082  echrysanthakopou/back:1_0_0"
+      register: "output"      
+      
     - debug: var=output.stdout_lines
