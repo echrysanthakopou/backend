@@ -1,37 +1,45 @@
 ---
   - name: "Playing with Ansible and Git"
-    hosts: dev
-    become: true
+    hosts: localhost
+    connection: local 
     tasks:
 
+    - name: "just execute a ls -lrt command"
     - name: "jDownload my sql docker"
       shell: "docker pull mysql/mysql-server:8.0"
       register: "output"
 
+    - name: "just execute a ls -lrt command1"
     - name: "Remove running mysql"
       shell: "docker rm -f mysql-docker"
       register: "output"
-      
+
+    - name: "just execute a ls -lrt command2"
     - name: "Run mysql docker"
       shell: "docker run --name=mysql-docker -p 3306:3306 -e MYSQL_ROOT_HOST='%' -e MYSQL_ROOT_PASSWORD=HarrisHarris1 -e MYSQL_DATABASE=mydb1 -d mysql/mysql-server:8.0 "
       register: "output"
-      
+
+    - name: "just execute a ls -lrt command3"
     - name: "pull backend docker"
       shell: "docker pull echrysanthakopou/back:1_0_0"
       register: "output"
 
+    - name: "just execute a ls -lrt command4"
     - name: "remove previous docker "
       shell: "docker rm -f back"
       register: "output"
-      
+
+    - name: "just execute a ls -lrt command4_5"
+      shell: "sleep 240; "
     - name: "wait for db to initialize"
       shell: "sleep 200; "
       register: "output"    
-      
+
+    - name: "just execute a ls -lrt command5"
     - name: "deploy"
       shell: " docker run --name=back --net=host  -p 8082:8082  -d=true echrysanthakopou/back:1_0_0 "
       register: "output"      
-      
+
     - name: "wait for db to initialize"
       shell: "sleep 60; "
       register: "output"   
