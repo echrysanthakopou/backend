@@ -1,0 +1,3 @@
+[dev]
+
+local ansible_user=user
