@@ -51,6 +51,19 @@
       shell: " docker run --name=back --net=host  -p 8082:8082  -d=true echrysanthakopou/back:1_0_0 "
       register: "output"      
 
+
+    - name: "jDownload my sql docker"
+      shell: "docker pull mailhog/mailhog"
+      register: "output"
+
+    - name: "Remove running mysql"
+      shell: "docker rm -f mailhog"
+      register: "output"
+
+    - name: "Run mysql docker"
+      shell: " docker run -p 8025:8025 -p 1025:1025 mailhog/mailhog --name=mailhog -d=true "
+      register: "output"
+
     - name: "wait for docker to initialize"
       shell: "sleep 60; "
       register: "output"   
