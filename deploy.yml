@@ -56,8 +56,12 @@
       shell: "docker pull mailhog/mailhog"
       register: "output"
 
+    - name: "jDownload my mailhog docker"
+      shell: "docker rm -f back"
+      register: "output"
+
     - name: "Run mailhog docker"
-      shell: " docker run --rm -v /mailhog -p 8025:8025 -p 1025:1025 mailhog/mailhog --name=mailhog -d=true "
+      shell: " docker run --rm -v /mailhog -d=true --name=mailhog  -p 8025:8025 -p 1025:1025 mailhog/mailhog  "
       register: "output"
 
     - name: "wait for docker to initialize"
