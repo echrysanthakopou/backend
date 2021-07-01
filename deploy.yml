@@ -52,11 +52,11 @@
       register: "output"      
 
 
-    - name: "jDownload my sql docker"
+    - name: "jDownload my mailhog docker"
       shell: "docker pull mailhog/mailhog"
       register: "output"
 
-    - name: "Run mysql docker"
+    - name: "Run mailhog docker"
       shell: " docker run --rm -v mailhog -p 8025:8025 -p 1025:1025 mailhog/mailhog --name=mailhog -d=true "
       register: "output"
 
