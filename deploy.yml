@@ -56,12 +56,8 @@
       shell: "docker pull mailhog/mailhog"
       register: "output"
 
-    - name: "Remove running mysql"
-      shell: "docker rm -f mailhog"
-      register: "output"
-
     - name: "Run mysql docker"
-      shell: " docker run -p 8025:8025 -p 1025:1025 mailhog/mailhog --name=mailhog -d=true "
+      shell: " docker run --rm -v mailhog -p 8025:8025 -p 1025:1025 mailhog/mailhog --name=mailhog -d=true "
       register: "output"
 
     - name: "wait for docker to initialize"
