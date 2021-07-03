@@ -19,8 +19,33 @@ public class ApplicationEntity {
     private String numberPhone;
     private String post;
     private String select;
+    private String selectTameio;
+    private String status;
+    private String iban;
 
+    @Lob
+    @Column
+    private byte[] file;
 
+    @Basic
+    @Column(name = "status", nullable = true, length = 45)
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Basic
+    @Column(name = "iban", nullable = true, length = 45)
+    public String getIban() {
+        return iban;
+    }
+
+    public void setIban(String iban) {
+        this.iban = iban;
+    }
 
     @Basic
     @Column(name = "name", nullable = true, length = 45)
@@ -30,6 +55,16 @@ public class ApplicationEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Basic
+    @Column(name = "selectTameio", nullable = true, length = 45)
+    public String getSelectTameio() {
+        return selectTameio;
+    }
+
+    public void setSelectTameio(String selectTameio) {
+        this.selectTameio = selectTameio;
     }
 
     @Basic

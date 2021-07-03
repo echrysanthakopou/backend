@@ -21,8 +21,12 @@ public class UserEntity {
     private Integer id;
     private String email;
 
+    private String amka;
+    private String afm;
+
     private Collection<HistoryworkingEntity> historyworkingsById;
     private BankaccountEntity bankaccountByBankaccount;
+
 
     @Basic
     @Column(name = "age", nullable = true, length = 45)
@@ -122,6 +126,26 @@ public class UserEntity {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    @Basic
+    @Column(name = "amka", nullable = true, length = 45)
+    public String getAmka() {
+        return amka;
+    }
+
+    public void setAmka(String amka) {
+        this.amka = amka;
+    }
+
+    @Basic
+    @Column(name = "afm", nullable = true, length = 45)
+    public String getAfm() {
+        return afm;
+    }
+
+    public void setAfm(String afm) {
+        this.afm = afm;
     }
 
     @Override

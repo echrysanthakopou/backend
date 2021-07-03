@@ -69,6 +69,15 @@ public class UserController {
     @PostMapping(value = "/login", headers = "Accept=application/x-www-form-urlencoded;harset=UTF-8")
     public String login(@RequestBody LoginDetails loginData)  {
 
+        if(loginData.getName().equals("admin"))
+        {
+            if (loginData.getPassword().equals("admin")){
+                return "Login Successful!";
+            }
+            else {
+                return "logged User Error";
+            }
+        }
 
         System.out.println("Received " +loginData.toString()+ "\n");
         //List<userE

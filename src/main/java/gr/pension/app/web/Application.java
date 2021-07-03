@@ -14,11 +14,8 @@ public class Application {
     public static Integer user = 1;
 
 
-
     @Autowired
     private ApplicationDAO applicationDAO;
-
-
 
 
     @ResponseBody
@@ -26,7 +23,7 @@ public class Application {
     public Boolean createApp(@RequestBody ApplicationEntity app) {
 
 
-        System.out.println("Received" +app.toString()+ "}\n");
+        System.out.println("Received" + app.toString() + "}\n");
 
 
         applicationDAO.save(app);
@@ -40,15 +37,52 @@ public class Application {
     @PostMapping(value = "/getApplication")
     public List<ApplicationEntity> createApp(@RequestBody String mail) {
 
+        if (mail.equals("admin")) {
+            return
+                    applicationDAO.findAll();
+        }else{
+
+            return
+                    applicationDAO.findAllByEmail(mail);
+        }
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/delete")
+    public Boolean deleteApplication(@RequestBody String id) {
+
+           applicationDAO.deleteById(Integer.parseInt(id));
+           return true;
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/approved")
+    public Boolean approved(@RequestBody String id) {
 
 
+        List<ApplicationEntity> app=applicationDAO.findAllById(Integer.parseInt(id));
+        if (app.size()>0)
+        {
+            app.get(0).setStatus("Εγκρίθηκε");
+            applicationDAO.save(app.get(0));
+        }
+           //applicationDAO.deleteById(Integer.parseInt(id));
+           return true;
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/clickDiapproved")
+    public Boolean clickDiapproved(@RequestBody String id) {
 
 
-        return
-                applicationDAO.findAllByEmail(mail);
-        //return null;
-
-
+        List<ApplicationEntity> app=applicationDAO.findAllById(Integer.parseInt(id));
+        if (app.size()>0)
+        {
+            app.get(0).setStatus("Απόρριψη");
+            applicationDAO.save(app.get(0));
+        }
+           //applicationDAO.deleteById(Integer.parseInt(id));
+           return true;
     }
 
 
@@ -57,7 +91,7 @@ public class Application {
     public Boolean searchApplication(@RequestBody Application search) {
 
 
-        System.out.println("Create User with data" +search+ "}\n");
+        System.out.println("Create User with data" + search + "}\n");
 
         //Application found
         return true;
