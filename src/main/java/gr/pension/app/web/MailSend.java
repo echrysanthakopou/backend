@@ -52,14 +52,14 @@ public class MailSend {
                 return "false";
             }
         }
-        String password="Password1!";
+        String password="password";
         user.setPassword("password");
         userEntityDAO.save(user);
 
 
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setTo(resetData.getName());
-        msg.setFrom("pensionInfo@gmail.com");
+        msg.setFrom("info@pension.com");
         msg.setSubject("Eπαναφορά του κωδικού");
         msg.setText("Προσωρινός κωδικός "+ password);
         javaMailSender.send(msg);

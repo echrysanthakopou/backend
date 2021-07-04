@@ -1,8 +1,12 @@
 package gr.pension.app.web;
 
 import gr.pension.app.dao.ApplicationDAO;
+import gr.pension.app.dao.UserEntityDAO;
 import gr.pension.app.model.entities.ApplicationEntity;
+import gr.pension.app.model.entities.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +21,11 @@ public class Application {
     @Autowired
     private ApplicationDAO applicationDAO;
 
+    @Autowired
+    private UserEntityDAO userEntityDAO;
+
+    @Autowired
+    private JavaMailSenderImpl javaMailSender;
 
     @ResponseBody
     @PostMapping(value = "/applicationCreate")
@@ -27,6 +36,25 @@ public class Application {
 
 
         applicationDAO.save(app);
+
+        String password="password";
+
+        UserEntity user=userEntityDAO.findUserEntityByEmail(app.getEmail());
+        if (user==null)
+        {
+            return false;
+        }
+        user.setPassword("password");
+        userEntityDAO.save(user);
+
+
+        SimpleMailMessage msg = new SimpleMailMessage();
+        msg.setTo(app.getEmail());
+        msg.setFrom("info@pension.com");
+        msg.setSubject("Δημιουργία νέας αίτησης");
+        msg.setText(" Σας ενημερωνούμε ότι έχει δημιουργήθει μια νέα αιτήση στο όνομα σας.");
+        javaMailSender.send(msg);
+
         return true;
         //return null;
 

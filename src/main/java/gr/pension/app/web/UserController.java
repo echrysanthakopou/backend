@@ -66,6 +66,29 @@ public class UserController {
 
 
     @ResponseBody
+    @PostMapping(value = "/findUsers")
+    public List<UserEntity> findUsers() {
+
+
+        //System.out.println("find user with mail" +loginData.getName()+ "}\n");
+        return userEntityDAO.findAll();
+    }
+
+
+    @ResponseBody
+    @PostMapping(value = "/deleteUsers")
+    public Boolean deleteApplication(@RequestBody String email) {
+
+        UserEntity user=userEntityDAO.findUserEntityByEmail(email);
+        if(user==null)
+        {
+            return false;
+        }
+        userEntityDAO.deleteById(user.getId());
+        return true;
+    }
+
+    @ResponseBody
     @PostMapping(value = "/login", headers = "Accept=application/x-www-form-urlencoded;harset=UTF-8")
     public String login(@RequestBody LoginDetails loginData)  {
 
