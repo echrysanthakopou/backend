@@ -76,6 +76,20 @@ public class Application {
     }
 
     @ResponseBody
+    @PostMapping(value = "/getApplicationById")
+    public ApplicationEntity getApplicationById(@RequestBody String id) {
+
+              List<ApplicationEntity> list=  applicationDAO.findAllById(Integer.parseInt(id));
+              if(list.size()>0)
+              {
+                  return list.get(0);
+              }
+
+              return null;
+    }
+
+
+    @ResponseBody
     @PostMapping(value = "/delete")
     public Boolean deleteApplication(@RequestBody String id) {
 
