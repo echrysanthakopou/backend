@@ -27,17 +27,17 @@
       shell: "docker pull mysql/mysql-server:8.0"
       register: "output"
 
-    - name: "Remove running mysql"
-      shell: "docker rm -f mysql-docker"
-      register: "output"
+#     - name: "Remove running mysql"
+#       shell: "docker rm -f mysql-docker"
+#       register: "output"
 
-    - name: "Run mysql docker"
-      shell: "docker run --name=mysql-docker -p 3306:3306 -e MYSQL_ROOT_HOST='%' -e MYSQL_ROOT_PASSWORD=HarrisHarris1 -e MYSQL_DATABASE=mydb1 -d mysql/mysql-server:8.0 "
-      register: "output"
+#     - name: "Run mysql docker"
+#       shell: "docker run --name=mysql-docker -p 3306:3306 -e MYSQL_ROOT_HOST='%' -e MYSQL_ROOT_PASSWORD=HarrisHarris1 -e MYSQL_DATABASE=mydb1 -d mysql/mysql-server:8.0 "
+#       register: "output"
 
-    - name: "pull backend docker"
-      shell: "docker pull echrysanthakopou/back:1_0_0"
-      register: "output"
+#     - name: "pull backend docker"
+#       shell: "docker pull echrysanthakopou/back:1_0_0"
+#       register: "output"
 
     - name: "remove previous docker "
       shell: "docker rm -f back"
