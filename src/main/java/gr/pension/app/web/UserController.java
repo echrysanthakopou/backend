@@ -1,11 +1,8 @@
 package gr.pension.app.web;
 
-import gr.pension.app.dao.HistoryworkingEntityDAO;
-import gr.pension.app.dao.UserEntityDAO;
-import gr.pension.app.datatypes.LoginDetails;
-import gr.pension.app.model.data;
-import gr.pension.app.model.entities.HistoryworkingEntity;
-import gr.pension.app.model.entities.UserEntity;
+import gr.pension.app.persistence.dao.UserEntityDAO;
+import gr.pension.app.dto.LoginDetails;
+import gr.pension.app.persistence.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,38 +12,18 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*")
 public class UserController {
-    public static Integer user = 1;
-
-
 
     @Autowired
     private UserEntityDAO   userEntityDAO;
-
-
-//    @ResponseBody
-//    @PostMapping("/getNotes")
-//    public HistoryworkingEntity getNotes(@RequestBody data name)  {
-//
-//        System.out.println("test " +name+ "}\n");
-//
-//        return historyworkingEntityDAO.findById(Integer.parseInt(name.getName())).orElse(null);
-//    }
-
-
-
-
 
     @ResponseBody
     @PostMapping(value = "/createuser")
     public Boolean createUser1(@RequestBody UserEntity user) {
 
-
         System.out.println("Create User with data" +user.toString()+ "}\n");
         userEntityDAO.save(user);
 
         return true;
-        //return null;
-
 
     }
 
@@ -54,13 +31,8 @@ public class UserController {
     @PostMapping(value = "/findUser")
     public UserEntity findUser(@RequestBody LoginDetails loginData) {
 
-
         System.out.println("find user with mail" +loginData.getName()+ "}\n");
         return userEntityDAO.findUserEntityByEmail(loginData.getName());
-
-
-        //return null;
-
 
     }
 
@@ -102,7 +74,7 @@ public class UserController {
             }
         }
 
-        System.out.println("Received " +loginData.toString()+ "\n");
+        System.out.println("Received " + loginData + "\n");
         //List<userE
         List<UserEntity> users = userEntityDAO.findAll();
 

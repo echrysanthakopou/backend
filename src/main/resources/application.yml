@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${DB_IP}:${DB_PORT}}/${DB_SCHEMA}?useUnicode=true&connectionCollation=utf8_general_ci&createDatabaseIfNotExist=true
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        connection:
+          characterEncoding: utf-8
+          CharSet: utf-8
+          useUnicode: true
+        dialect: gr.pension.app.persistence.MySQL55DialectUtf8mb4

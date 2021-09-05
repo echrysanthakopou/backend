@@ -1,23 +1,15 @@
 package gr.pension.app.web;
 
-import gr.pension.app.dao.ApplicationDAO;
-import gr.pension.app.dao.UserEntityDAO;
-import gr.pension.app.datatypes.LoginDetails;
-import gr.pension.app.datatypes.ResetData;
-import gr.pension.app.model.entities.ApplicationEntity;
-import gr.pension.app.model.entities.UserEntity;
+import gr.pension.app.persistence.dao.ApplicationDAO;
+import gr.pension.app.persistence.dao.UserEntityDAO;
+import gr.pension.app.dto.LoginDetails;
+import gr.pension.app.persistence.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
-import java.util.List;
-import java.util.Properties;
-
 
 @RestController
 @CrossOrigin(origins = "*")

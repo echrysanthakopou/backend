@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: backend
+  name: backend
+  namespace: pensionapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - env:
+            - name: DB_IP
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: db.ip
+            - name: DB_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: db.port
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: db.user
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: db.password
+            - name: DB_SCHEMA
+              value: mydb1
+            - name: SPRING_MAIL_HOST
+              value: "127.0.0.1"
+            - name: SPRING_MAIL_PORT
+              value: "1025"
+          image: echrysanthakopou/back
+          imagePullPolicy: IfNotPresent
+          name: pensionapp-backend
+          ports:
+            - containerPort: 8080
+          resources: {}
+      restartPolicy: Always
