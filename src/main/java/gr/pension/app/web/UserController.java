@@ -79,8 +79,7 @@ public class UserController {
         List<UserEntity> users = userEntityDAO.findAll();
 
 
-        for (UserEntity user:users
-             ) {
+        for (UserEntity user:users) {
             System.out.println("looping, cur User" + user.getEmail()+" pass " +user.getPassword() );
             if (user.getEmail().equals(loginData.getName())&& user.getPassword().equals(loginData.getPassword())){
                 System.out.println("Found");

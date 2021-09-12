@@ -3,12 +3,15 @@ kind: Service
 metadata:
   labels:
     app: backend
-  name: backend
+  name: backend-nodeport
   namespace: pensionapp
 spec:
+  type: NodePort
   ports:
-    - name: "8080"
-      port: 8080
+    - port: 8080
       targetPort: 8080
+      nodePort: 30002
+      protocol: TCP
+      name: http
   selector:
     app: backend

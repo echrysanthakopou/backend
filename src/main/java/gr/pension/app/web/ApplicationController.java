@@ -52,7 +52,6 @@ public class ApplicationController {
     @ResponseBody
     @PostMapping(value = "/getApplication")
     public List<ApplicationEntity> createApp(@RequestBody String mail) {
-
         if (mail.equals("admin")) {
             return applicationDAO.findAll();
         } else {

@@ -39,11 +39,11 @@ spec:
                   name: db-secret
                   key: db.password
             - name: DB_SCHEMA
-              value: mydb1
+              value: "mydb1"
             - name: SPRING_MAIL_HOST
-              value: "127.0.0.1"
+              value: "35.207.78.176"
             - name: SPRING_MAIL_PORT
-              value: "1025"
+              value: "30003"
           image: echrysanthakopou/back
           imagePullPolicy: IfNotPresent
           name: pensionapp-backend
