@@ -29,15 +29,7 @@ public class ApplicationController {
     public Boolean createApp(@RequestBody ApplicationEntity app) {
 
         System.out.println("Received" + app.toString() + "}\n");
-
         applicationDAO.save(app);
-
-        UserEntity user = userEntityDAO.findUserEntityByEmail(app.getEmail());
-        if (user == null) {
-            return false;
-        }
-        user.setPassword("password");
-        userEntityDAO.save(user);
 
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setTo(app.getEmail());

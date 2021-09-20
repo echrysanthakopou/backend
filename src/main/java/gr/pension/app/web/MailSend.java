@@ -10,6 +10,9 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.Random;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -44,8 +47,21 @@ public class MailSend {
                 return "false";
             }
         }
-        String password="password";
-        user.setPassword("password");
+
+        int leftLimit = 97; // letter 'a'
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = 10;
+        Random random = new Random();
+        StringBuilder buffer = new StringBuilder(targetStringLength);
+        for (int i = 0; i < targetStringLength; i++) {
+            int randomLimitedInt = leftLimit + (int)
+                    (random.nextFloat() * (rightLimit - leftLimit + 1));
+            buffer.append((char) randomLimitedInt);
+        }
+        String password = buffer.toString();
+
+        user.setPassword(password);
+
         userEntityDAO.save(user);
 
 
